@@ -6,6 +6,7 @@ feature 'adding a Bookmark' do
 
     scenario 'fill in a form with a new url' do
         expect(page.has_field?("url")).to be_truthy
+        expect(page.has_field?("title")).to be_truthy
     end
 
     scenario 'checks there is a sumbit button' do
@@ -14,8 +15,10 @@ feature 'adding a Bookmark' do
 
     scenario 'adds a bookmark' do
         fill_in "url", with: "www.facebook.com"
+        fill_in "title", with: "facebook"
         click_button "Submit"
-        expect(page).to have_content "www.facebook.com"
+
+        expect(page).to have_link('facebook', href: 'www.facebook.com')      
     end
   end
   
