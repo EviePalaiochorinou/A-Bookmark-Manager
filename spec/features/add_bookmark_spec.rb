@@ -14,11 +14,11 @@ feature 'adding a Bookmark' do
     end
 
     scenario 'adds a bookmark' do
-        fill_in "url", with: "www.facebook.com"
-        fill_in "title", with: "facebook"
-        click_button "Submit"
+        fill_in("url", with: "http://www.facebook.com")
+        fill_in("title", with: "facebook")
+        click_button("Submit")
 
-        expect(page).to have_link('facebook', href: 'www.facebook.com')      
+        expect(page).to have_link('facebook', href: 'http://www.facebook.com')      
     end
   end
   
